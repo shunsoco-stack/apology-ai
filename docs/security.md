@@ -101,6 +101,7 @@ CIはNode.js 24で、Secret Scan、`npm audit --audit-level=high`、lint、typec
 | 入力内容の非送信・非保存 | 生成・履歴・Analyticsの実装とテスト | 相談内容は生成関数／保存スキーマ／計測プロパティへ渡さない。計測は操作名と許可したモードのみ |
 | GitHub Secret scanning / Push protection | 公開リポジトリの設定 | 両方enabled |
 | GitHub Actions | [初期CI #33074637572](https://github.com/shunsoco-stack/apology-ai/actions/runs/33074637572) / `a4f1a9a` | 全ジョブ成功。lint/types/tests/build/auditとGitleaks historyを含む。完了22:01:30 JST |
+| 公開版GitHub Actions | [CI #33075477190](https://github.com/shunsoco-stack/apology-ai/actions/runs/33075477190) / `93cfbfd` | 公開画像・実URLメタデータを含む版も全ジョブ成功 |
 
 最初の無除外のディレクトリ検査では、`.next/`の生成物に含まれるプレビュー用・暗号用の一時的な鍵が検出されました。これらはGit管理・公開するソースの対象外です。上表の「0件」は、依存・ビルド・ローカル連携情報を除外した公開対象とGit履歴の結果です。
 

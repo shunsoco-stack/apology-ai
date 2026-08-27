@@ -98,11 +98,12 @@ Gitleaksのディレクトリ検査は `.gitleaks.toml` で依存・ビルド・
 
 ## 最終更新の追記
 
-最終差分の公開後、実際に確認した結果だけを追記します。初期CIの成功を最終CIの成功として扱いません。
+アプリと画像を含む公開版は `93cfbfd` です。以下は公開後の実確認です。この記録の追記では、アプリの表示・動作は変更していません。
 
 | 項目 | 最終結果 |
 | --- | --- |
-| 最終コミット／GitHub Actions | 最終差分の反映後に、コミットとCI実行URL・結果を追記 |
-| 再デプロイ／メタデータ | 最終デプロイと公開先での再確認後に追記 |
-| 公開アプリのスクリーンショット5枚 | 完了。上記5ファイルを保存、READMEへ埋め込み済み |
+| 公開版コミット／GitHub Actions | [`93cfbfd`](https://github.com/shunsoco-stack/apology-ai/commit/93cfbfd)・[CI #33075477190](https://github.com/shunsoco-stack/apology-ai/actions/runs/33075477190)：全ジョブ成功 |
+| 再デプロイ／メタデータ | [Vercel本番デプロイ](https://vercel.com/shunsoco-stacks-projects/apology-ai/fCnDV3Q6j8XKRUMeWCkn7jUgPwQ2)：READY。公開URLはHTTP 200。OG画像のURL、CSP、X-Frame-Optionsを再確認 |
+| 公開アプリのスクリーンショット5枚 | 完了。ブラウザのJPEG出力を加工せず保存し、READMEへ埋め込み。公開先の5ファイルもHTTP 200・image/jpegを確認 |
+| 静的アセット・Analytics | manifest、Service Worker、favicon、SVG、OG画像、PWAアイコン4種、AnalyticsスクリプトがすべてHTTP 200 |
 | 最終ローカル検証 | lint・typecheck・90テスト・buildの再実行成功。npm auditは脆弱性0件。補助Secret Scanは49ファイル検査／18項目除外・検出0件。自己テスト15検出・7安全ケース・パス境界も成功 |
