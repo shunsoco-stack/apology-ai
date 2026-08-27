@@ -2,8 +2,8 @@
 
 ## 公開URL
 
-- アプリ：`{{VERCEL_URL}}`（公開後に差し替え）
-- GitHub：`{{GITHUB_URL}}`（公開後に差し替え）
+- アプリ：`https://apology-ai-iota.vercel.app`
+- GitHub：`https://github.com/shunsoco-stack/apology-ai`
 - URL SLUG：`apology-ai`
 - Tsukutta掲載状況：**未掲載**
 
@@ -40,7 +40,7 @@ Next.js App Router / TypeScript / Tailwind CSSで制作。**生成AI API不使�
 
 実際のトラブルや重大な謝罪のためのツールではありません。個人情報・機密情報は入力せず、肩の力を抜いてお楽しみください。
 
-アプリ：{{VERCEL_URL}}
+アプリ：https://apology-ai-iota.vercel.app
 
 ## タグ（5個）
 
@@ -59,12 +59,12 @@ Next.js / TypeScript / Tailwind CSSで制作。生成AI APIは使わず、入力
 息抜きに、ひとつ謝ってみてください。
 ※AI風のジョークアプリです。実際のトラブルや重大な謝罪には使用せず、個人情報・機密情報は入力しないでください。
 
-{{VERCEL_URL}}
+https://apology-ai-iota.vercel.app
 
 #個人開発 #ジョークアプリ #Nextjs #PWA #UIUX
 
-## 公開前の確認
+## 公開・掲載状況
 
-- 上のアプリURL・GitHub URLを、到達確認済みの公開URLに差し替える。
-- スクリーンショットとREADMEが公開版と一致することを確認する。
+- アプリとGitHubは公開済み。上記URLへの到達を確認済み。
+- 公開アプリから5画面を撮影し、`public/screenshots/`へ保存。READMEにも掲載。
 - Tsukutta掲載は別作業。実際の掲載が完了するまでは「未掲載」を維持する。

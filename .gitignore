@@ -11,6 +11,3 @@ test-results/
 .DS_Store
 .local/
 .npm-cache/
-
-.vercel
-.env*

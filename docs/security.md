@@ -2,6 +2,8 @@
 
 謝罪AIは、**生成AI APIを使用しないAI風のジョークアプリ**です。実際のトラブル、法的問題、重大な謝罪に使用しないでください。個人情報や機密情報を入力しないでください。
 
+公開先：[apology-ai-iota.vercel.app](https://apology-ai-iota.vercel.app) ／ [GitHub](https://github.com/shunsoco-stack/apology-ai)
+
 ## 入力と処理
 
 - 入力した相談内容は画面のメモリ内だけで扱います。謝罪の生成関数は相談内容を引数に取りません。
@@ -50,6 +52,8 @@ Vercel Web Analyticsのページビュー等も対象になります。同サー
 
 **4種類のカスタムイベントをVercelの画面で集計するには、Web Analyticsの有効化とPro／Enterpriseプランが必要です。Hobbyでカスタムイベント集計は利用できません。** APIキーなしで動作するアプリ本体とは別のサービス制約です。このリポジトリから有料プランへの変更や課金契約は行いません。[カスタムイベント](https://vercel.com/docs/analytics/custom-events)・[プランと使用量](https://vercel.com/docs/analytics/limits-and-pricing)
 
+2026-08-27時点で、公開プロジェクトの無料Web Analyticsが有効であることをVercel公式APIの `features.webAnalytics: true` で確認しました。有料プランへは変更していません。4操作の送信処理は実装・テスト済みですが、Hobby上でのカスタムイベント集計完了を意味するものではありません。
+
 ## 配信時の保護
 
 `vercel.json`で次のレスポンスヘッダーを設定します。公開先での適用確認は、下の検査記録に残します。
@@ -78,19 +82,26 @@ GitHub Actionsは、この検査に加えて公式Gitleaks Action v3とGitleaks 
 
 CIはNode.js 24で、Secret Scan、`npm audit --audit-level=high`、lint、typecheck、テスト、buildを実行します。GitHubトークンは読み取り権限に限定し、PRコメント・リポジトリ更新・デプロイの権限は与えません。公開前には別途、Gitleaksのディレクトリ検査とGit履歴検査を実行します。
 
+公開リポジトリでは、GitHubのSecret scanningとPush protectionを有効化済みです。これらも、すべての種類の秘密情報を検出できる保証ではありません。
+
 もし本物の秘密情報を検出した場合は、まず該当するキーを失効・再発行してください。ファイルや履歴から消すだけでは、既に露出したキーを安全には戻せません。値をIssue、PR、検査記録へ貼り付けないでください。
 
-## 公開前の実検査記録
+## 公開時の実検査記録
 
-以下は記録用の欄です。検査を実行した後、公開するコミット／デプロイと実際の結果を記入します。未記入の項目を確認済みとして扱わないでください。
+検証日：2026-08-27（JST）。初期公開コミットは [`a4f1a9a`](https://github.com/shunsoco-stack/apology-ai/commit/a4f1a9a) です。下表は初期公開と最終公開前の作業ツリーで実行済みの結果です。最終コミットのCI・再デプロイ後の確認とは分けています。
 
-| 検査 | 実施日時 | 対象コミット／デプロイ | 結果 |
-| --- | --- | --- | --- |
-| 補助Secret Scan / self-test | 未記入 | 未記入 | 未記入 |
-| Gitleaks 8.30.0: directory | 未記入 | 未記入 | 未記入 |
-| Gitleaks 8.30.0: Git history | 未記入 | 未記入 | 未記入 |
-| npm audit | 未記入 | 未記入 | 未記入 |
-| lint / typecheck / test / build | 未記入 | 未記入 | 未記入 |
-| 公開先CSP・セキュリティヘッダー | 未記入 | 未記入 | 未記入 |
-| 入力内容の非送信・非保存 | 未記入 | 未記入 | 未記入 |
-| GitHub Actions実行結果 | 未記入 | 未記入 | 未記入 |
+| 検査 | 対象 | 実確認の結果 |
+| --- | --- | --- |
+| 補助Secret Scan / self-test | 公開対象ソース・設定・ドキュメント | 49テキストファイル検査・18項目除外、検出0件。検出15・安全7ケース、パス境界の自己テスト成功 |
+| Gitleaks 8.30.0: directory | `.gitleaks.toml`の除外設定を適用した公開対象 | 検出0件。[レポート](gitleaks-worktree.json) |
+| Gitleaks 8.30.0: Git history | 初期公開リポジトリの履歴 | 検出0件。[レポート](gitleaks-history.json) |
+| npm audit | `sharp@0.35.4`、Node 24.x／lock同期後の依存関係 | 最終公開前の再実行でも既知の脆弱性0件 |
+| lint / typecheck / test / build | 実URLメタデータ・Node 24.x反映後の作業ツリー | 再実行ですべて成功。4ファイル・90テスト成功 |
+| 公開先HTTP・セキュリティヘッダー | [公開アプリ](https://apology-ai-iota.vercel.app) | HTTP 200、CSP、`X-Frame-Options: DENY`を確認。`/sw.js`のCache-Controlに`no-store`を確認 |
+| 入力内容の非送信・非保存 | 生成・履歴・Analyticsの実装とテスト | 相談内容は生成関数／保存スキーマ／計測プロパティへ渡さない。計測は操作名と許可したモードのみ |
+| GitHub Secret scanning / Push protection | 公開リポジトリの設定 | 両方enabled |
+| GitHub Actions | [初期CI #33074637572](https://github.com/shunsoco-stack/apology-ai/actions/runs/33074637572) / `a4f1a9a` | 全ジョブ成功。lint/types/tests/build/auditとGitleaks historyを含む。完了22:01:30 JST |
+
+最初の無除外のディレクトリ検査では、`.next/`の生成物に含まれるプレビュー用・暗号用の一時的な鍵が検出されました。これらはGit管理・公開するソースの対象外です。上表の「0件」は、依存・ビルド・ローカル連携情報を除外した公開対象とGit履歴の結果です。
+
+最終コミット、再デプロイ、公開スクリーンショット、最終CIの結果は、[検証記録の最終更新欄](verification.md#最終更新の追記)にまとめます。検査成功は、未確認のOS操作や有料プランの計測集計まで完了したことを示しません。

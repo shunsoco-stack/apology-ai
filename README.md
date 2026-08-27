@@ -6,7 +6,7 @@
 
 **生成AI API不使用。** 外部AI、APIキー、データベースは不要。オリジナルの固定テンプレートを端末内で選ぶため、AIの生成料金は発生しません。
 
-- 公開アプリ：公開確認後に記載
+- 公開アプリ：[apology-ai-iota.vercel.app](https://apology-ai-iota.vercel.app)
 - GitHub：https://github.com/shunsoco-stack/apology-ai
 - 紹介文：[docs/publish-copy.md](docs/publish-copy.md)
 - セキュリティ：[docs/security.md](docs/security.md)
@@ -56,7 +56,7 @@
 
 ## 開発
 
-Node.js 22以上（CIは24）とnpmを使用します。環境変数の設定は不要です。
+Node.js 24とnpmを使用します。環境変数の設定は不要です。
 
 ```bash
 npm ci
@@ -105,23 +105,23 @@ CIはlint、typecheck、テスト、静的ビルド、依存監査、補助Secre
 
 ### 1. 入力画面
 
-![入力画面](public/screenshots/01-input.png)
+![入力画面](public/screenshots/01-input.jpg)
 
 ### 2. AI処理風画面
 
-![4段階の分析演出](public/screenshots/02-processing.png)
+![4段階の分析演出](public/screenshots/02-processing.jpg)
 
 ### 3. 通常謝罪結果
 
-![通常モードの謝罪結果](public/screenshots/03-normal-result.png)
+![通常モードの謝罪結果](public/screenshots/03-normal-result.jpg)
 
 ### 4. 超高性能モード
 
-![超高性能モードの謝罪結果](public/screenshots/04-super-mode.png)
+![超高性能モードの謝罪結果](public/screenshots/04-super-mode.jpg)
 
 ### 5. 謝罪履歴
 
-![謝罪履歴](public/screenshots/05-history.png)
+![謝罪履歴](public/screenshots/05-history.jpg)
 
 ## 掲載状況
 

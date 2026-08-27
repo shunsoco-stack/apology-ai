@@ -15,7 +15,7 @@
     "assets": "node scripts/generate-assets.mjs"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": "24.x"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",

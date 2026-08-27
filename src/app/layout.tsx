@@ -8,7 +8,7 @@ const description =
   "どんな相談を入力しても、最後は謝ることしかできないAI風のジョークアプリ。生成AI API不使用・アカウント不要・入力は端末内だけで処理。誠意だけは、最先端。";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://apology-ai.vercel.app"),
+  metadataBase: new URL("https://apology-ai-iota.vercel.app"),
   title,
   description,
   applicationName: "謝罪AI",
