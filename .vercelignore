@@ -1,0 +1,8 @@
+.git
+.local
+node_modules
+.next
+out
+coverage
+test-results
+*.log

@@ -1,0 +1,13 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Generated dependencies, build output and local deployment credentials are never published as source."
+paths = [
+  '''(^|[\\/])node_modules[\\/]''',
+  '''(^|[\\/])\.next[\\/]''',
+  '''(^|[\\/])out[\\/]''',
+  '''(^|[\\/])\.vercel[\\/]''',
+  '''(^|[\\/])\.local[\\/]''',
+  '''(^|[\\/])coverage[\\/]''',
+]

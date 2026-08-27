@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+.vercel/
+.env*
+!.env.example
+*.tsbuildinfo
+*.log
+coverage/
+test-results/
+.DS_Store
+.local/
+.npm-cache/
+
+.vercel
+.env*

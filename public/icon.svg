@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>謝罪AI — お辞儀するAI</title>
+  <rect width="512" height="512" rx="116" fill="#E3F1DF"/>
+  <g transform="rotate(13 256 240)">
+    <rect x="130" y="131" width="252" height="208" rx="73" fill="#173E32"/>
+    <circle cx="211" cy="238" r="13" fill="#E3F1DF"/>
+    <circle cx="298" cy="238" r="13" fill="#E3F1DF"/>
+  </g>
+  <path d="M184 387C227 370 285 370 328 387" stroke="#173E32" stroke-width="29" stroke-linecap="round"/>
+  <path d="M389 97V129M373 113H405" stroke="#173E32" stroke-width="10" stroke-linecap="round"/>
+</svg>
