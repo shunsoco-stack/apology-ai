@@ -596,6 +596,9 @@ export default function ApologyApp() {
           >
             このアプリについて
           </button>
+          <a className="text-button" href="/privacy">
+            プライバシーポリシー
+          </a>
           <button
             className="text-button install-button"
             onClick={() => {
